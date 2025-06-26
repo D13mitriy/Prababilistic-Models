@@ -128,7 +128,7 @@ void run_experiment(...);
 ![Experiment results](Screen_shots/8.png)
 * побудова залежності `l(ε)`
 ![VC vs Simplified Bound](Figure_82.png)
-![Heat-map](Figure_88.png)
+![Heat-map](Figure_83.png)
 
 ---
 
