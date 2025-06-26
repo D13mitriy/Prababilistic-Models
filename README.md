@@ -35,10 +35,10 @@ $$
 Допустимі стратегії класифікації:
 
 $$
-q(x) = \begin{cases}
-0, & (x, a) \geq \theta \\
-1, & (x, a) < \theta
-\end{cases}
+\mathcal{N}(0, I) = \mathcal{N}\left(
+\begin{bmatrix} 0 \\ 0 \end{bmatrix},
+\begin{bmatrix} 1 & 0  \\ 0 & 1 \end{bmatrix}
+\right)
 $$
 ---
 
