@@ -101,6 +101,7 @@ int compute_simplified_sample_size(double epsilon, double eta) {
     //return static_cast<int>(ceil((log(N) - log(eta))/(2 * pow(epsilon, 2))));
 }
 
+// VC-theoretic generalization bound (solved with binary search)
 int compute_vc_sample_size(int vc_dim, double epsilon, double eta) {
     int left = 1, right = 100000;
     while (left < right) {
@@ -181,12 +182,30 @@ void append_summary_csv(const string& filename, double p, double q, double eps, 
     file.close();
 }
 
+void export_bounds_vs_epsilon(double eta, int vc_dim) {
+    ofstream out("epsilon_vs_bounds.csv");
+    out << "epsilon,l_simp,l_vc\n";
+    double eps = 0.01, target = 0.1, rate = 0.005;
+    int steps = static_cast<int>((target - eps) / rate);
+    for (int idx_eps = 1; idx_eps <= steps; ++idx_eps)
+    {
+        eps += rate;
+        int l_simp = compute_simplified_sample_size(eps, eta);
+        int l_vc = compute_vc_sample_size(vc_dim, eps, eta);
+        out << fixed << setprecision(3) << eps << "," << l_simp << "," << l_vc << "\n";
+    }
+    out.close();
+    cout << "Exported epsilon_vs_bounds.csv for η = " << eta << "\n";
+}
+
 void run_experiment(double p, double q, double eta, double epsilon, int N, mt19937& gen, int vc_dim, const string& summary_path) {
     auto start = high_resolution_clock::now();
 
     int l_vc = compute_vc_sample_size(vc_dim, epsilon, eta);
     vector<Point> train_set = generate_dataset(l_vc, p, q, gen);
     vector<Point> test_set = generate_dataset(N, p, q, gen);
+    export_bounds_vs_epsilon(eta, vc_dim);  // match η used in experiments
+
 
     vector<double> best_a;
     double best_theta;
@@ -261,6 +280,10 @@ int main() {
             for (double eps : eps_values)
                 for (double eta : eta_values)
                     run_experiment(p, q, eta, eps, N, gen, d_vc, summary_csv);
+    //export_bounds_vs_epsilon(eta, d_vc);  // match η used in experiments
+    //system("venv/bin/python csv_plotting.py");
+
+
 
     return 0;
 }
