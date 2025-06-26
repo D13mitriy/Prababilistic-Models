@@ -34,10 +34,11 @@ $$
 
 Допустимі стратегії класифікації:
 
-
-q(x) = \Bigg\{ \left 
+\begin{equation*}
+q(x) = \left\{ 
 0, & (x, a) \geq \theta \\
-1, & (x, a) < \theta
+1, & (x, a) < \theta 
+\end{equation*}
 
 ---
 
