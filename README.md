@@ -123,8 +123,12 @@ void run_experiment(...);
 ### Python-візуалізація (`csv_plotting.py`):
 
 * побудова межі розділення
+![Boundary p=0.9, q=0.1](Figure_81.png)
 * вивід емпіричних ризиків
+![Experiment results](Screen_shots/8.png)
 * побудова залежності `l(ε)`
+![VC vs Simplified Bound](Figure_82.png)
+![Heat-map](Figure_88.png)
 
 ---
 
