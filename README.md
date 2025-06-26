@@ -35,9 +35,10 @@ $$
 Допустимі стратегії класифікації:
 
 $$
-q(x) = \left\{ \begin{cases}
+q(x) = \begin{cases}
 0, & (x, a) \geq \theta \\
-1, & (x, a) < \theta \end{cases}
+1, & (x, a) < \theta
+\end{cases}
 $$
 ---
 
