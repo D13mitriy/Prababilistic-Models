@@ -34,12 +34,11 @@ $$
 
 Допустимі стратегії класифікації:
 
-\begin{equation*}
-q(x) = \left\{ 
+$$
+q(x) = \left\{ case
 0, & (x, a) \geq \theta \\
 1, & (x, a) < \theta 
-\end{equation*}
-
+$$
 ---
 
 ## 1. Обчислення VC-розмірності
