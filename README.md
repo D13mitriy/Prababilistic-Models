@@ -125,10 +125,11 @@ void run_experiment(...);
 * побудова межі розділення
 ![Boundary p=0.9, q=0.1](Figure_81.png)
 * вивід емпіричних ризиків
+![Heat-map](Figure_83.png)
 ![Experiment results](Screen_shots/8.png)
 * побудова залежності `l(ε)`
 ![VC vs Simplified Bound](Figure_82.png)
-![Heat-map](Figure_83.png)
+
 
 ---
 
