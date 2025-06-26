@@ -35,9 +35,9 @@ $$
 Допустимі стратегії класифікації:
 
 $$
-q(x) = \left\{ case
+q(x) = \left\{ \begin{cases}
 0, & (x, a) \geq \theta \\
-1, & (x, a) < \theta 
+1, & (x, a) < \theta \end{cases}
 $$
 ---
 
